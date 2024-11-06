@@ -1,0 +1,16 @@
+cd C:\Users\japes\OneDrive\Desktop\mongodb
+mongosh
+show dbs
+use students
+db.createCollection("students")
+db.students.insertOne({"name":"HARRY","age":20,"grade":"A"})
+db.students.find()
+db.students.insertMany([{"name":"SAM","age":5,"grade":"A+"},{"name":"JOHN","age":17,"grade":"B"},{"name":"TINA","age":12,"grade":"B+"},{"name":"RIYA","age":23,"grade":"C"},{"name":"PRIYA","age":32,"grade":"F"}])
+db.students.find({age:{$gt:18}})  
+db.students.find({age:{$gt:18,$lt:23}})
+db.students.updateOne({"name":"JOHN"},{$set:{"grade":"A"}})
+db.students.insertOne({"name":"EMILY","age":2,"grade":"C"})
+db.students.deleteOne({"name":"EMILY"})
+db.students.countDocuments({"grade":"B"})
+db.students.find({},{"name":1,"grade":1,"_id":0})
+db.students.find({}).sort({"age":-1})
